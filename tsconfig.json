@@ -15,44 +15,33 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx", // ← تمكين JSX في ملفات .tsx
+    "jsx": "react-jsx",
     "incremental": true,
+    "noUncheckedSideEffectImports": false,
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "baseUrl": ".", // جذر المشروع
     "paths": {
       "@/*": [
         "./*"
       ],
       "@/types/*": [
-        "types/*"
+        "./types/*"
       ],
       "@/components/*": [
-        "components/*"
+        "./components/*"
       ],
       "@/lib/constants/*": [
-        "lib/constants/*"
+        "./lib/constants/*"
       ]
-    },
-    "typeRoots": [
-      "./node_modules/@types" // لا ندخل مجلّد types كـ ambient roots
-    ]
+    }
   },
   "include": [
+    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "app/**/*.ts", // تضمين .tsx لملفات React
-    "app/**/*.tsx",
-    "components/**/*.ts",
-    "components/**/*.tsx",
-    "next-env.d.ts",
-    "scripts/**/*.js",
-    "scripts/**/*.mts",
-    "types/**/*.d.ts",
-    "types/**/*.ts",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],

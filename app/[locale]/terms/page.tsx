@@ -9,11 +9,11 @@ const LOCALES: Locale[] = ["en", "pl"];
 const SITE_NAME = "MENSITIVA";
 
 const PROVIDER = {
-  legalName: "Patrycja Konkowska",
+  legalName: " ",
   brandName: SITE_NAME,
-  street: "ul. Darzyborska 15B/7",
-  city: "Poznań",
-  postalCode: "61-303",
+  street: " ",
+  city: " ",
+  postalCode: " ",
   email: "mensitiva1@gmail.com",
 } as const;
 

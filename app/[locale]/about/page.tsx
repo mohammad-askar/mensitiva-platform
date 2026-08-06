@@ -38,9 +38,9 @@ const i18n: Record<Locale, AboutT> = {
       'The idea for the initiative grew out of earlier activities carried out on social media. Rather than developing them separately, the creators decided to bring them together under one banner.',
     contactLink: 'Go to contact page',
     addressTitle: 'Correspondence address',
-    name: 'Patrycja Konkowska',
-    addressLine1: '15B/7 Darzyborska Street',
-    addressLine2: '61-303 Poznań',
+    name: ' ',
+    addressLine1: ' ',
+    addressLine2: ' ',
     addressLine3: 'Poland',
   },
   pl: {
@@ -55,9 +55,9 @@ const i18n: Record<Locale, AboutT> = {
       'Pomysł na inicjatywę wyrósł z wcześniejszych działań prowadzonych w mediach społecznościowych. Zamiast rozwijać je osobno, twórcy postanowili zebrać je pod wspólnym szyldem.',
     contactLink: 'Przejdź do strony kontaktu',
     addressTitle: 'Adres do korespondencji',
-    name: 'Patrycja Konkowska',
-    addressLine1: 'ul. Darzyborska 15B/7',
-    addressLine2: '61-303 Poznań',
+    name: ' ',
+    addressLine1: ' ',
+    addressLine2: ' ',
   },
 };
 
@@ -97,9 +97,9 @@ export default async function AboutPage({
     url: siteUrlEnv || undefined,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'ul. Darzyborska 15B/7',
-      postalCode: '61-303',
-      addressLocality: 'Poznań',
+      streetAddress: ' ',
+      postalCode: ' ',
+      addressLocality: ' ',
       addressCountry: loc === 'pl' ? 'Polska' : 'Poland',
     },
   };

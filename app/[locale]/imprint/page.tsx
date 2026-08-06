@@ -9,13 +9,13 @@ const SITE_NAME = 'MENSITIVA';
 
 /** بيانات مزوّد الخدمة (المالك/الكيان القانوني للموقع) */
 const PROVIDER = {
-  legalName: 'Patrycja Konkowska',               // اسم المالك/المزوّد
+  legalName: ' ',               // اسم المالك/المزوّد
   brandName: SITE_NAME,                          // اسم الموقع/العلامة
 
   // عنوان المراسلات
-  street: 'ul. Darzyborska 15B/7',
-  city: 'Poznań',
-  postalCode: '61-303',
+  street: ' ',
+  city: ' ',
+  postalCode: ' ',
   country: 'Poland',
 
   email: 'mensitiva1@gmail.com',                  // ← حدّثه ببريدك الرسمي إن وُجد
