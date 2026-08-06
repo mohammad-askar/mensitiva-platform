@@ -24,10 +24,14 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Wave animation */
+
 @keyframes waveMove {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -36,74 +40,113 @@ body {
 .wave-animation {
   animation: waveMove 10s linear infinite;
 }
-/* TipTap placeholder style */
+
+/* TipTap placeholder */
+
 .tiptap p.is-editor-empty:first-child::before {
   content: attr(data-placeholder);
   float: left;
-  color: #9ca3af;        /* رمادي واضح */
+  color: #9ca3af;
   pointer-events: none;
   height: 0;
 }
+
+/* Fade-in animation */
+
 @layer utilities {
   .animate-fade-in {
     @apply opacity-0 translate-y-6;
     animation: fadeIn 0.6s forwards ease-out;
   }
+
   @keyframes fadeIn {
-    to { opacity: 1; transform: translateY(0); }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
-/* احترام حجم الصورة القادم من المحرّر */
-/* الحل: قم بتعديل القاعدة الموجودة لديك لتصبح هكذا */
+
+/* Respect image dimensions coming from the editor */
+
 .prose img,
 .prose figure img {
-  /*
-   * ✨ هذا هو السطر الجديد والمهم ✨
-   * "revert" تطلب من المتصفح تجاهل العرض المحدد في .prose
-   * واستخدام العرض المحدد في style الخاص بالصورة.
-  */
   width: revert;
-
-  /* احتفظ بهذين السطرين كما هما، فهما مهمان للتجاوب */
   max-width: 100%;
   height: auto;
 }
 
-/* محاذاة اختيارية من السمات (لو بتحب تستخدم data-align) */
-.prose img[data-align="left"]   { float: left;  margin: .25rem .75rem .5rem 0; }
-.prose img[data-align="right"]  { float: right; margin: .25rem 0 .5rem .75rem; }
-.prose img[data-align="center"] { display:block; margin-left:auto; margin-right:auto; float:none; }
+/* Image alignment */
 
-/* تأثيرات اختيارية */
-.prose img[data-rounded="1"] { border-radius: .5rem; }
-.prose img[data-shadow="1"]  { box-shadow: 0 6px 30px rgba(0,0,0,.18); }
+.prose img[data-align="left"] {
+  float: left;
+  margin: 0.25rem 0.75rem 0.5rem 0;
+}
 
+.prose img[data-align="right"] {
+  float: right;
+  margin: 0.25rem 0 0.5rem 0.75rem;
+}
 
-/* inline mode (no float): */
-.prose img[data-align="inline"] { display:inline-block; margin:.25rem .5rem; vertical-align: top; float:none; }
+.prose img[data-align="center"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
 
-/* keep your existing left/right/center rules and the clearfix: */
-.prose::after { content:""; display:table; clear:both; }
-/* إظهار الفقرات الفارغة كسطر مرئي */
+.prose img[data-align="inline"] {
+  display: inline-block;
+  margin: 0.25rem 0.5rem;
+  vertical-align: top;
+  float: none;
+}
+
+/* Optional image effects */
+
+.prose img[data-rounded="1"] {
+  border-radius: 0.5rem;
+}
+
+.prose img[data-shadow="1"] {
+  box-shadow: 0 6px 30px rgb(0 0 0 / 18%);
+}
+
+/* Clear floats after article content */
+
+.prose::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Make empty paragraphs visible */
+
 .prose p:empty::before {
-  content: "\00a0"; /* NBSP */
+  content: "\00a0";
   display: block;
 }
+
+/* Preserve line breaks inside TipTap */
+
 .tiptap p,
 .tiptap h1,
 .tiptap h2,
-.tiptap h3 { white-space: pre-wrap; }
-/* لا تسمح أبداً بإزاحة البلوك للفقرات داخل المحرّر */
+.tiptap h3 {
+  white-space: pre-wrap;
+}
+
+/* Do not allow paragraph block indentation */
+
 .tiptap p[data-indent] {
   margin-left: 0 !important;
   padding-left: 0 !important;
 }
 
-/* العناوين فقط هي اللي نسمح لها بإزاحة بلوكية (لو تحتاجها) */
+/* Allow heading indentation when supplied by the extension */
+
 .tiptap h1[data-indent],
 .tiptap h2[data-indent],
 .tiptap h3[data-indent] {
   text-indent: 0 !important;
-  /* margin-left تأتي من الامتداد نفسه */
 }
-
